@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html data-theme="night">
   <head>
     <title>TcgPokemon</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,9 +11,19 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <main class="container mx-auto mt-28 px-5 flex">
+  <body class="flex flex-col h-screen">
+    <header>
+      <%= render "layouts/navbar" %>
+    </header>
+
+    <main class="container mb-auto mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>
+
+    <footer class="footer footer-center p-4 bg-base-300 text-base-content">
+      <div>
+        <p>Copyright © 2023 - Peter de Ridder</p>
+      </div>
+    </footer>
   </body>
 </html>
