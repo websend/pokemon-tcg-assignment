@@ -77,6 +77,9 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # Run tests for modified files
+  gem 'guard-rspec', require: false
 end
 
 group :test do
