@@ -63,6 +63,9 @@ group :development, :test do
 
   # Stash environment variables
   gem "dotenv-rails", groups: [:development, :test]
+
+  # Test framework
+  gem 'rspec-rails', '~> 6.0.0'
 end
 
 group :development do
