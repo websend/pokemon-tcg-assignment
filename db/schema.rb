@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_22_145744) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_08_160230) do
   create_table "abilities", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.text "effect"
@@ -131,6 +131,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_22_145744) do
     t.string "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "trainers", charset: "utf8mb4", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_trainers_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_trainers_on_reset_password_token", unique: true
   end
 
   create_table "weaknesses", charset: "utf8mb4", force: :cascade do |t|

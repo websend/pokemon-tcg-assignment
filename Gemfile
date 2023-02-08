@@ -57,6 +57,9 @@ gem "httparty"
 # Pagination
 gem "pagy", "~> 5.10"
 
+# Authentication
+gem "devise"
+
 group :development, :test do
   # Debugging tool
   gem "pry"
