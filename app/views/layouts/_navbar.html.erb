@@ -1,11 +1,10 @@
 <div class="navbar bg-base-100 justify-end">
   <div class="flex-none">
-    <ul class="menu menu-horizontal px-1">
+    <ul class="menu menu-horizontal gap-2">
       <li><%= link_to "Pack simulator", "#" %></li>
-      <li><%= link_to "Card generator", "#" %></li>
       <li><%= link_to "Pokédex", "#" %></li>
       <% if trainer_signed_in? %>
-        <%= link_to "Sign out", destroy_trainer_session_path, data: { turbo_method: :delete }, class: "btn" %>
+        <%= link_to "Sign out", destroy_trainer_session_path, method: :delete, data: { turbo_method: :delete }, class: "btn" %>
       <% else %>
         <%= link_to "Sign in", new_trainer_session_path, class: "btn" %>
       <% end %>

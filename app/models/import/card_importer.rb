@@ -25,7 +25,7 @@ module Import
         unique_id: tcg_card["id"],
         category: tcg_card["category"],
         description: tcg_card["description"],
-        dex_id: tcg_card["dexId"],
+        dex_id: Array(tcg_card["dexId"]).first,
         effect: tcg_card["effect"],
         energy_type: tcg_card["energyType"],
         evolve_from: tcg_card["evolveFrom"],
@@ -94,7 +94,7 @@ module Import
       tcg_pokemon_types = Array(tcg_card["types"]).compact
 
       pokemon_types = tcg_pokemon_types.map do |tcg_pokemon_type|
-        PokemonType.find_or_create_by(name: tcg_pokemon_type["type"])
+        PokemonType.find_or_create_by(name: tcg_pokemon_type)
       end
 
       card.pokemon_types = pokemon_types

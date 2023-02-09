@@ -5,7 +5,7 @@ class CreateCards < ActiveRecord::Migration[7.0]
       t.references :card_set, null: false, foreign_key: true
       t.string :category
       t.string :description
-      t.string :dex_id
+      t.integer :dex_id
       t.text :effect
       t.string :energy_type
       t.string :evolve_from
@@ -13,11 +13,11 @@ class CreateCards < ActiveRecord::Migration[7.0]
       t.string :illustrator
       t.string :image_url
       t.integer :level
-      t.integer :local_id
+      t.string :local_id
       t.string :name
       t.string :rarity
       t.string :regulation_mark
-      t.float :retreat
+      t.integer :retreat
       t.string :stage
       t.string :suffix
       t.string :trainer_type

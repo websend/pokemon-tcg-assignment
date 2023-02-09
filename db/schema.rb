@@ -28,6 +28,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_160230) do
     t.index ["card_id", "ability_id"], name: "index_abilities_cards_on_card_id_and_ability_id"
   end
 
+  create_table "attacks", charset: "utf8mb4", force: :cascade do |t|
+    t.string "cost"
+    t.string "damage"
+    t.text "effect"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "attacks_cards", id: false, charset: "utf8mb4", force: :cascade do |t|
     t.bigint "attack_id", null: false
     t.bigint "card_id", null: false
@@ -69,7 +78,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_160230) do
     t.bigint "card_set_id", null: false
     t.string "category"
     t.string "description"
-    t.string "dex_id"
+    t.integer "dex_id"
     t.text "effect"
     t.string "energy_type"
     t.string "evolve_from"
@@ -77,11 +86,11 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_160230) do
     t.string "illustrator"
     t.string "image_url"
     t.integer "level"
-    t.integer "local_id"
+    t.string "local_id"
     t.string "name"
     t.string "rarity"
     t.string "regulation_mark"
-    t.float "retreat"
+    t.integer "retreat"
     t.string "stage"
     t.string "suffix"
     t.string "trainer_type"

@@ -2,12 +2,12 @@ module PokemonApi
   module Graphql
     module V2
       module Requests
-        class Sets
-          def self.retrieve
+        class Set
+          def self.retrieve(id)
             response = PokemonApi::Graphql::V2::Client.query(
               <<~GRAPHQL
-                query {
-                  sets {
+                query($id: ID!) {
+                  set(id: $id) {
                     cardCount{
                       firstEd
                       holo
@@ -29,8 +29,6 @@ module PokemonApi
                 }
               GRAPHQL
             )
-
-            response.dig("data", "sets")
           end
         end
       end

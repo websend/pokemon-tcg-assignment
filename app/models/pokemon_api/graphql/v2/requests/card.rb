@@ -2,12 +2,12 @@ module PokemonApi
   module Graphql
     module V2
       module Requests
-        class Cards
-          def self.retrieve(card_filter = nil)
+        class Card
+          def self.retrieve(id, set)
             response = PokemonApi::Graphql::V2::Client.query(
               <<~GRAPHQL
-                query {
-                  cards {
+                query($id: ID!, $set: String) {
+                  card(id: $id, set: $set) {
                     abilities {
                       effect
                       name
@@ -65,8 +65,6 @@ module PokemonApi
                 }
               GRAPHQL
             )
-
-            response.dig("data", "cards")
           end
         end
       end
