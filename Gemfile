@@ -57,6 +57,9 @@ gem "httparty"
 # Pagination
 gem "pagy", "~> 5.10"
 
+# Authentication
+gem "devise"
+
 group :development, :test do
   # Debugging tool
   gem "pry"
@@ -66,6 +69,12 @@ group :development, :test do
 
   # Test framework
   gem 'rspec-rails', '~> 6.0.0'
+
+  # Test matchers
+  gem 'shoulda-matchers'
+
+  # Factories
+  gem 'factory_bot_rails'
 end
 
 group :development do

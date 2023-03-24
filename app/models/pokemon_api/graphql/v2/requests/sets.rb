@@ -24,6 +24,7 @@ module PokemonApi
                       id
                     }
                     releaseDate
+                    tcgOnline
                   }
                 }
               GRAPHQL

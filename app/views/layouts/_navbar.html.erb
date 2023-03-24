@@ -1,9 +1,19 @@
 <div class="navbar bg-base-100 justify-end">
+  <div class="flex-1">
+    <%= link_to "Pokemania", root_path, class: "btn btn-ghost normal-case text-xl" %>
+  </div>
   <div class="flex-none">
-    <ul class="menu menu-horizontal px-1">
-      <li><%= link_to "Pack simulator", "#" %></li>
-      <li><%= link_to "Card generator", "#" %></li>
-      <li><%= link_to "Pokédex", "#" %></li>
+    <ul class="menu menu-horizontal gap-2 px-1">
+      <% if trainer_signed_in? %>
+        <li><%= link_to "Collection", trainer_cards_path(current_trainer), class: ("active" if current_page?(trainer_cards_path(current_trainer))) %></li>
+      <% end %>
+      <li><%= link_to "Store", card_packs_path, class: ("active" if current_page?(card_packs_path)) %></li>
+      <li><%= link_to "Cards", cards_path, class: ("active" if current_page?(cards_path)) %></li>
+      <% if trainer_signed_in? %>
+        <%= link_to "Sign out", destroy_trainer_session_path, method: :delete, data: { turbo_method: :delete }, class: "btn" %>
+      <% else %>
+        <%= link_to "Sign in", new_trainer_session_path, class: "btn" %>
+      <% end %>
     </ul>
   </div>
 </div>

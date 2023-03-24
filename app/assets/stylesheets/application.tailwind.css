@@ -11,3 +11,47 @@
 }
 
 */
+
+.pagy-nav,
+.pagy-nav-js {
+  @apply flex space-x-2;
+}
+
+.pagy-nav .page a,
+.pagy-nav .page.active,
+.pagy-nav .page.prev.disabled,
+.pagy-nav .page.next.disabled,
+.pagy-nav-js .page a,
+.pagy-nav-js .page.active,
+.pagy-nav-js .page.prev.disabled,
+.pagy-nav-js .page.next.disabled {
+  &:hover{
+    @apply bg-primary;
+  }
+  &:active{
+    @apply bg-primary;
+  }
+}
+
+.pagy-nav .page.prev.disabled,
+.pagy-nav .page.next.disabled,
+.pagy-nav-js .page.prev.disabled,
+.pagy-nav-js .page.next.disabled {
+  @apply text-gray-400 cursor-default;
+  &:hover {
+    @apply bg-gray-200;
+  }
+  &:active {
+    @apply bg-gray-200;
+  }
+}
+
+.pagy-nav .page.active {
+  @apply block px-2 text-black rounded-lg bg-primary shadow-md;
+  &:hover {
+    @apply bg-primary;
+  }
+  &:active {
+    @apply bg-primary;
+  }
+}

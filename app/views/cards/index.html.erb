@@ -1,0 +1,17 @@
+<%= render partial: "filters" %>
+
+<%= turbo_frame_tag "cards" do %>
+  <% if @cards.present? %>
+    <% if @pagy.pages > 1 %>
+      <div class="mb-5"><%== pagy_nav(@pagy) %></div>
+    <% end %>
+
+    <div class="grid grid-cols-4 gap-4">
+      <% @cards.each do |card| %>
+        <%= image_tag(card.image_url + "/high.webp") if card.image_url.present? %>
+      <% end %>
+    </div>
+  <% else %>
+    <p>No results found.</p>
+  <% end %>
+<% end %>
