@@ -3,11 +3,12 @@ module PokemonApi
     module V2
       module Requests
         class Cards
-          def self.retrieve(card_filter = nil)
+          # For now, we're only retrieving the first 300 cards
+          def self.retrieve
             response = PokemonApi::Graphql::V2::Client.query(
               <<~GRAPHQL
                 query {
-                  cards {
+                  cards(pagination: { page: 1, count: 300 }) {
                     abilities {
                       effect
                       name

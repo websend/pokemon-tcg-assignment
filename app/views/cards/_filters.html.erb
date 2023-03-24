@@ -1,0 +1,19 @@
+<div class="search my-5">
+  <%= form_with(url: cards_path, method: :get,
+    data: {
+      turbo_frame: "cards",
+      turbo_action: "advance",
+      controller: "form",
+      action: "input->form#submit"
+    }) do |form|
+  %>
+    <div class="form-control w-full max-w-xs">
+      <%= form.text_field :name,
+        value: params[:name],
+        placeholder: "Name",
+        onfocus: "this.value = this.value;",
+        class: "input input-bordered w-full max-w-xs"
+      %>
+    </div>
+  <% end %>
+</div>

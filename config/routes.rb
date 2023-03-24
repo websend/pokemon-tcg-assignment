@@ -9,4 +9,11 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
+
+  resources :cards
+  resources :card_packs
+
+  resources :trainer, only: [] do
+    resources :cards, only: :index
+  end
 end

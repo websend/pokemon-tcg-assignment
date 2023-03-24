@@ -8,6 +8,7 @@ RSpec.describe Card, type: :model do
   it { is_expected.to have_and_belong_to_many(:pokemon_types) }
   it { is_expected.to have_and_belong_to_many(:resistances) }
   it { is_expected.to have_and_belong_to_many(:weaknesses) }
+  it { is_expected.to have_and_belong_to_many(:trainers) }
 
   describe "scopes" do
     describe ".with_card_set_id" do

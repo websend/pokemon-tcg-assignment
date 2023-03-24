@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_08_160230) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_24_082757) do
   create_table "abilities", charset: "utf8mb4", force: :cascade do |t|
     t.string "name"
     t.text "effect"
@@ -42,6 +42,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_160230) do
     t.bigint "card_id", null: false
     t.index ["attack_id", "card_id"], name: "index_attacks_cards_on_attack_id_and_card_id"
     t.index ["card_id", "attack_id"], name: "index_attacks_cards_on_card_id_and_attack_id"
+  end
+
+  create_table "card_packs", charset: "utf8mb4", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.integer "coins"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "card_packs_trainers", id: false, charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "card_pack_id", null: false
+    t.bigint "trainer_id", null: false
+    t.index ["card_pack_id", "trainer_id"], name: "index_card_packs_trainers_on_card_pack_id_and_trainer_id"
+    t.index ["trainer_id", "card_pack_id"], name: "index_card_packs_trainers_on_trainer_id_and_card_pack_id"
   end
 
   create_table "card_series", charset: "utf8mb4", force: :cascade do |t|
@@ -122,6 +137,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_160230) do
     t.index ["resistance_id", "card_id"], name: "index_cards_resistances_on_resistance_id_and_card_id"
   end
 
+  create_table "cards_trainers", id: false, charset: "utf8mb4", force: :cascade do |t|
+    t.bigint "card_id", null: false
+    t.bigint "trainer_id", null: false
+    t.index ["card_id", "trainer_id"], name: "index_cards_trainers_on_card_id_and_trainer_id"
+    t.index ["trainer_id", "card_id"], name: "index_cards_trainers_on_trainer_id_and_card_id"
+  end
+
   create_table "cards_weaknesses", id: false, charset: "utf8mb4", force: :cascade do |t|
     t.bigint "card_id", null: false
     t.bigint "weakness_id", null: false
@@ -150,6 +172,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_08_160230) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "coins", default: 0
     t.index ["email"], name: "index_trainers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_trainers_on_reset_password_token", unique: true
   end

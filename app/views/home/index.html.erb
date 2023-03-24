@@ -3,7 +3,11 @@
     <div class="max-w-md">
       <h1 class="text-5xl font-bold">Pokemania</h1>
       <p class="py-6">Collect cards and build your own Pokedex.</p>
-      <%= link_to "Show Pokedex", "#", class: "btn btn-primary" %>
+      <% if trainer_signed_in? %>
+        <%= link_to "Show collection", trainer_cards_path(current_trainer), class: "btn btn-primary" %>
+      <% else %>
+        <%= link_to "Sign in", new_trainer_session_path, class: "btn" %>
+      <% end %>
     </div>
   </div>
 </div>
