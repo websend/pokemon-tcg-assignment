@@ -18,7 +18,7 @@ De volgende criteria zijn losse features en kunnen opeenvolgend worden geïmplem
     - Het is mogelijk om aangeschafte pakketten in te zien
 2. Maak het mogelijk om de aangeschafte pakketten te openen
     - Na het openen worden 10 willekeurige Pokémon kaarten toegevoegd aan jouw collectie
-3. Maak het mogelijk om verschillende type kaartenpakketten te open, met wisselende odds voor het krijgen van veelvoorkomende tot zeldzame Pokémon kaarten
+3. Maak het mogelijk om verschillende type kaartenpakketten te openen met wisselende odds voor het krijgen van veelvoorkomende tot zeldzame Pokémon kaarten
     - De volgende condities gelden voor een Basic pakket:
         - Minimaal twee Pokemon zijn Uncommon of hoger
         - De volgende odds worden toegepast:
