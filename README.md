@@ -5,9 +5,9 @@ Het doel van deze opdracht is een pack simulator voor Pokémon kaarten te ontwik
 ### Start
 
 - Clone deze app
-- Run `rails db:create` en `rails db:migrate`
-- Run `rails db:seed` om Basic en Premium kaartenpakketten in te laden en te starten met 1200 coins
-- Run `Import::ProcessorJob.perform_now` om 100 Pokémon kaarten in te laden
+- Run `bin/rails db:create` en `bin/rails db:migrate`
+- Run `bin/rails db:seed` om Basic en Premium kaartenpakketten in te laden en te starten met 1200 coins
+- Start de terminal en run `Import::ProcessorJob.perform_now` om 100 Pokémon kaarten in te laden
 - Installeer DaisyUI met `npm install daisyui`
 - Start de server met `bin/dev`
 
